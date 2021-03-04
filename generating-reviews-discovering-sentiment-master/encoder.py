@@ -1,9 +1,12 @@
 import time
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+
+tf.disable_v2_behavior()
 
 from tqdm import tqdm
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
 
 from utils import HParams, preprocess, iter_data
 
@@ -133,7 +136,7 @@ class Model(object):
             embd_wn=True,
         )
         global params
-        params = [np.load('model/%d.npy'%i) for i in range(15)]
+        params = [np.load('C:/Users/Micha/Documents/Github/SentimentAnalysis/SentimentAnalysis/generating-reviews-discovering-sentiment-master/model/%d.npy'%i) for i in range(15)]
         params[2] = np.concatenate(params[2:6], axis=1)
         params[3:6] = []
 
